@@ -30,7 +30,6 @@ function ExternalComponent(props) {
       children: [
         /* @__PURE__ */ u("h2", { style: { margin: "0 0 12px", color: "#4338ca" }, children: "🌐 External Component" }),
         /* @__PURE__ */ u("p", { style: { margin: "0 0 16px", color: "#6366f1" }, children: "This component is loaded dynamically from an external URL!" }),
-        /* @__PURE__ */ u("p", { style: { margin: "0 0 8px", color: "#4338ca", fontSize: 14 }, children: "✅ Successfully loaded from jsDelivr CDN" }),
         /* @__PURE__ */ u("details", { style: { marginTop: 16 }, open: true, children: [
           /* @__PURE__ */ u("summary", { style: { cursor: "pointer", color: "#4338ca" }, children: "Props received from parent app" }),
           /* @__PURE__ */ u(
