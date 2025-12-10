@@ -22,9 +22,6 @@ export default function ExternalComponent(props: Record<string, unknown>) {
       <p style={{ margin: "0 0 16px", color: "#6366f1" }}>
         This component is loaded dynamically from an external URL!
       </p>
-      <p style={{ margin: "0 0 8px", color: "#4338ca", fontSize: 14 }}>
-        ✅ Successfully loaded from jsDelivr CDN
-      </p>
       <details style={{ marginTop: 16 }} open>
         <summary style={{ cursor: "pointer", color: "#4338ca" }}>
           Props received from parent app

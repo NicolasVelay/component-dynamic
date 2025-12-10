@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && git add dist && git commit -m 'Deploy component' --allow-empty && git push && curl -s 'https://purge.jsdelivr.net/gh/NicolasVelay/component-dynamic@master/dist/external-component.js' && echo '\n✅ Deployed and cache purged!'"
   },
   "dependencies": {
     "preact": "^10.27.2"
