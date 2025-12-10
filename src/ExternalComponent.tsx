@@ -1,12 +1,11 @@
-import { useState } from "preact/hooks";
-
 /**
  * External Component that can be dynamically loaded from a URL.
  * This component receives ViewComponentProps from the ui library.
+ *
+ * Note: This component is stateless because it bundles its own Preact,
+ * which would conflict with the parent app's Preact when using hooks.
  */
 export default function ExternalComponent(props: Record<string, unknown>) {
-  const [count, setCount] = useState(0);
-
   return (
     <div
       style={{
@@ -23,23 +22,10 @@ export default function ExternalComponent(props: Record<string, unknown>) {
       <p style={{ margin: "0 0 16px", color: "#6366f1" }}>
         This component is loaded dynamically from an external URL!
       </p>
-      <div style={{ margin: "16px 0" }}>
-        <button
-          onClick={() => setCount((c) => c + 1)}
-          style={{
-            padding: "8px 16px",
-            cursor: "pointer",
-            background: "#4f46e5",
-            color: "white",
-            border: "none",
-            borderRadius: 6,
-            fontWeight: 600,
-          }}
-        >
-          Local Count: {count}
-        </button>
-      </div>
-      <details style={{ marginTop: 16 }}>
+      <p style={{ margin: "0 0 8px", color: "#4338ca", fontSize: 14 }}>
+        ✅ Successfully loaded from jsDelivr CDN
+      </p>
+      <details style={{ marginTop: 16 }} open>
         <summary style={{ cursor: "pointer", color: "#4338ca" }}>
           Props received from parent app
         </summary>
@@ -51,6 +37,7 @@ export default function ExternalComponent(props: Record<string, unknown>) {
             borderRadius: 6,
             overflow: "auto",
             fontSize: 12,
+            marginTop: 8,
           }}
         >
           {JSON.stringify(props, null, 2)}
