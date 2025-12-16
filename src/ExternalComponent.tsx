@@ -9,29 +9,34 @@ export default function ExternalComponent(props: Record<string, unknown>) {
   return (
     <div
       style={{
-        padding: 24,
-        border: "2px dashed #6366f1",
-        borderRadius: 12,
-        background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        padding: 16,
+        border: "1px solid #22c55e",
+        borderRadius: 4,
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <h2 style={{ margin: "0 0 12px", color: "#4338ca" }}>
-        🌐 External Component
+      <h2 style={{ margin: "0 0 12px", color: "#22c55e" }}>
+        External Component
       </h2>
-      <p style={{ margin: "0 0 16px", color: "#6366f1" }}>
+      <p style={{ margin: "0 0 16px", color: "#16a34a" }}>
         This component is loaded dynamically from an external URL!
       </p>
       <details style={{ marginTop: 16 }} open>
-        <summary style={{ cursor: "pointer", color: "#4338ca" }}>
+        <summary style={{ cursor: "pointer", color: "#22c55e" }}>
           Props received from parent app
         </summary>
         <pre
           style={{
-            background: "#1e1b4b",
-            color: "#c7d2fe",
+            background: "#f0fdf4",
+            color: "#166534",
             padding: 12,
-            borderRadius: 6,
+            borderRadius: 4,
             overflow: "auto",
             fontSize: 12,
             marginTop: 8,

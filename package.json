@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && git add dist && git commit -m 'Deploy component' --allow-empty && git push && curl -s 'https://purge.jsdelivr.net/gh/NicolasVelay/component-dynamic@master/dist/external-component.js' && echo '\n✅ Deployed and cache purged!'"
+    "deploy": "npm run build && git add dist && git commit -m 'Deploy component' --allow-empty && git push && echo '\n✅ Deployed!' && echo 'Use this URL (commit hash for instant update):' && echo \"https://cdn.jsdelivr.net/gh/NicolasVelay/component-dynamic@$(git rev-parse --short HEAD)/dist/external-component.js\""
   },
   "dependencies": {
     "preact": "^10.27.2"
