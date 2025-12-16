@@ -23,8 +23,7 @@ function ExternalComponent(props) {
       style: {
         padding: 24,
         border: "2px #6366f1",
-        borderRadius: 12,
-        background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
+        borderRadius: 4,
         fontFamily: "system-ui, sans-serif"
       },
       children: [
