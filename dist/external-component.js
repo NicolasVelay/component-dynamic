@@ -22,15 +22,15 @@ function ExternalComponent(props) {
     {
       style: {
         padding: 24,
-        border: "2px #6366f1",
+        border: "2px solid #6366f1",
         borderRadius: 4,
         fontFamily: "system-ui, sans-serif"
       },
       children: [
-        /* @__PURE__ */ u("h2", { style: { margin: "0 0 12px", color: "#4338ca" }, children: "External Component" }),
-        /* @__PURE__ */ u("p", { style: { margin: "0 0 16px", color: "#6366f1" }, children: "This component is loaded dynamically from an external URL!" }),
+        /* @__PURE__ */ u("h2", { style: { margin: "0 0 8px" }, children: "External Component" }),
+        /* @__PURE__ */ u("p", { style: { margin: "0 0 8px" }, children: "This component is loaded dynamically from an external URL!" }),
         /* @__PURE__ */ u("details", { style: { marginTop: 16 }, open: true, children: [
-          /* @__PURE__ */ u("summary", { style: { cursor: "pointer", color: "#4338ca" }, children: "Props received from parent app" }),
+          /* @__PURE__ */ u("summary", { style: { cursor: "pointer" }, children: "Props received from parent app" }),
           /* @__PURE__ */ u(
             "pre",
             {
