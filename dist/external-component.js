@@ -21,30 +21,25 @@ function ExternalComponent(props) {
     "div",
     {
       style: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-        padding: 16,
-        border: "1px solid #22c55e",
-        borderRadius: 4,
+        padding: 24,
+        border: "2px #6366f1",
+        borderRadius: 12,
+        background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
         fontFamily: "system-ui, sans-serif"
       },
       children: [
-        /* @__PURE__ */ u("h2", { style: { margin: "0 0 12px", color: "#22c55e" }, children: "External Component" }),
-        /* @__PURE__ */ u("p", { style: { margin: "0 0 16px", color: "#16a34a" }, children: "This component is loaded dynamically from an external URL!" }),
+        /* @__PURE__ */ u("h2", { style: { margin: "0 0 12px", color: "#4338ca" }, children: "External Component" }),
+        /* @__PURE__ */ u("p", { style: { margin: "0 0 16px", color: "#6366f1" }, children: "This component is loaded dynamically from an external URL!" }),
         /* @__PURE__ */ u("details", { style: { marginTop: 16 }, open: true, children: [
-          /* @__PURE__ */ u("summary", { style: { cursor: "pointer", color: "#22c55e" }, children: "Props received from parent app" }),
+          /* @__PURE__ */ u("summary", { style: { cursor: "pointer", color: "#4338ca" }, children: "Props received from parent app" }),
           /* @__PURE__ */ u(
             "pre",
             {
               style: {
-                background: "#f0fdf4",
-                color: "#166534",
+                background: "#1e1b4b",
+                color: "#c7d2fe",
                 padding: 12,
-                borderRadius: 4,
+                borderRadius: 6,
                 overflow: "auto",
                 fontSize: 12,
                 marginTop: 8
