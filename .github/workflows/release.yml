@@ -1,0 +1,51 @@
+name: Release
+
+run-name: Release ${{ github.ref_name }} by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "package.json"
+      - "package-lock.json"
+      - "**.md"
+
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    concurrency:
+      group: release-package
+      cancel-in-progress: true
+    permissions:
+      contents: write
+      pull-requests: read
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get release info
+        id: release-info
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash ./.github/scripts/get-release-info.sh
+      - name: Tag version
+        if: steps.release-info.outputs.bump != 'skip'
+        run: |
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+          npm version "${{ steps.release-info.outputs.bump }}" --preid=beta
+          git push origin --follow-tags
+      - name: Create GitHub release
+        if: steps.release-info.outputs.bump != 'skip'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          gh release create "v${VERSION}" \
+            --title "${VERSION}" \
+            --notes-file /tmp/release_notes.md \
+            --target "${{ github.sha }}"
