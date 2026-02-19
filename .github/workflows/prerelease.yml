@@ -13,6 +13,10 @@ on:
           - patch
           - minor
           - major
+      notes:
+        description: "Release notes (leave empty for default)"
+        required: false
+        type: string
 
 jobs:
   prerelease:
@@ -36,9 +40,13 @@ jobs:
       - name: Create GitHub pre-release
         env:
           GH_TOKEN: ${{ github.token }}
+          NOTES: ${{ inputs.notes }}
         run: |
+          if [ -z "$NOTES" ]; then
+            NOTES="Pre-release from branch \`${{ github.ref_name }}\`"
+          fi
           gh release create "v${{ steps.version.outputs.version }}" \
             --title "${{ steps.version.outputs.version }}" \
-            --notes "Pre-release from branch \`${{ github.ref_name }}\`" \
+            --notes "$NOTES" \
             --target "${{ github.sha }}" \
             --prerelease
